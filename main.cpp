@@ -61,7 +61,7 @@ std::vector<float> parse_line(const std::string &line) {
         if (!item.empty()) {
             std::replace(item.begin(), item.end(), ',', '.');
             try { result.push_back(std::stof(item)); }
-            catch (...) { /* игнорируем неверные числа */ }
+            catch (...) { std::cerr << "Warning: invalid number \"" << item << "\" skipped\n"; }
         }
     }
     return result;
